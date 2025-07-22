@@ -1,3 +1,5 @@
+[![CI](https://github.com/L-Gardiner/agentic-trader/actions/workflows/main.yml/badge.svg)](https://github.com/L-Gardiner/agentic-trader/actions/workflows/main.yml)
+
 # Agentic Trader
 
 A modular trading bot platform using domain-driven design, incorporating ML/AI, advanced backend architecture, cloud infrastructure, and trading platform integrations.
