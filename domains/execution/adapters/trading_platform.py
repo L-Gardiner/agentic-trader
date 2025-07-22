@@ -1,10 +1,10 @@
 from abc import ABC, abstractmethod
-from typing import Dict, Any, List, Optional
-from datetime import datetime
+from typing import Any, Dict, Optional
+
 
 class TradingPlatform(ABC):
     """Abstract base class for trading platform adapters."""
-    
+
     @abstractmethod
     async def place_order(self, order_params: Dict[str, Any]) -> str:
         """Place an order on the trading platform."""

@@ -1,13 +1,16 @@
 from datetime import datetime
-from typing import List, Dict, Optional
 from enum import Enum
+from typing import List, Optional
+
 from pydantic import BaseModel, Field
+
 
 class SentimentSource(str, Enum):
     NEWS = "news"
     TWITTER = "twitter"
     REDDIT = "reddit"
     RSS = "rss"
+
 
 class SentimentLevel(int, Enum):
     VERY_NEGATIVE = -2
@@ -16,12 +19,14 @@ class SentimentLevel(int, Enum):
     POSITIVE = 1
     VERY_POSITIVE = 2
 
+
 class SentimentRequest(BaseModel):
     symbols: List[str]
     sources: List[SentimentSource]
     start_time: Optional[datetime] = None
     end_time: Optional[datetime] = None
-    
+
+
 class SourceSentiment(BaseModel):
     source: SentimentSource
     sentiment: SentimentLevel
@@ -29,6 +34,7 @@ class SourceSentiment(BaseModel):
     text: str
     url: Optional[str]
     timestamp: datetime
+
 
 class SentimentResponse(BaseModel):
     symbol: str

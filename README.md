@@ -36,6 +36,6 @@ Please read our [contribution guidelines](CONTRIBUTING.md) before submitting any
 
 ## License
 
-This project is shared for educational and portfolio purposes only.  
-**Commercial use is not permitted.** Contact the author for licensing requests.  
+This project is shared for educational and portfolio purposes only.
+**Commercial use is not permitted.** Contact the author for licensing requests.
 © 2025 Luke Gardiner. All rights reserved.

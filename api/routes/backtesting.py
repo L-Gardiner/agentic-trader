@@ -1,7 +1,9 @@
 from fastapi import APIRouter, HTTPException
+
 from api.schemas.backtesting import BacktestRequest, BacktestResponse
 
 router = APIRouter()
+
 
 @router.post("/run", response_model=BacktestResponse)
 async def run_backtest(request: BacktestRequest):

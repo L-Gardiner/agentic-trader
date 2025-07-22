@@ -1,6 +1,7 @@
-from typing import Dict, Any, List, Optional
 from datetime import datetime
 from enum import Enum
+from typing import Any, Dict, Optional
+
 
 class AgentState(Enum):
     IDLE = "idle"
@@ -9,9 +10,10 @@ class AgentState(Enum):
     COOLING_DOWN = "cooling_down"
     ERROR = "error"
 
+
 class BaseAgent:
     """Base class for all trading agents."""
-    
+
     def __init__(self, agent_id: str, config: Dict[str, Any]):
         self.agent_id = agent_id
         self.config = config
@@ -35,11 +37,11 @@ class BaseAgent:
         try:
             self.state = AgentState.ANALYZING
             market_data = await self.analyze_market()
-            
+
             self.state = AgentState.EXECUTING
             decision = await self.make_decision(market_data)
             success = await self.execute_decision(decision)
-            
+
             self.state = AgentState.COOLING_DOWN
             self.last_action_time = datetime.now()
             return success

@@ -1,6 +1,6 @@
-from typing import Dict, Any, Optional
-from datetime import datetime
 from enum import Enum
+from typing import Any, Dict, Optional
+
 
 class OrderStatus(Enum):
     PENDING = "pending"
@@ -8,9 +8,10 @@ class OrderStatus(Enum):
     CANCELLED = "cancelled"
     REJECTED = "rejected"
 
+
 class OrderManager:
     """Core order management system."""
-    
+
     def __init__(self):
         self.active_orders: Dict[str, Dict[str, Any]] = {}
         self.positions: Dict[str, float] = {}

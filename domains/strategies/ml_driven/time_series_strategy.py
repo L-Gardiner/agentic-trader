@@ -1,16 +1,16 @@
-from typing import Dict, Any, List, Optional
-from datetime import datetime
-import numpy as np
+from typing import Any, Dict
+
 from domains.strategies.base.base_strategy import BaseStrategy
+
 
 class TimeSeriesStrategy(BaseStrategy):
     """ML-based time series prediction strategy."""
-    
+
     def __init__(self, config: Dict[str, Any]):
         super().__init__(config)
-        self.model_uri = config['model_uri']
-        self.prediction_window = config.get('prediction_window', 5)
-        self.confidence_threshold = config.get('confidence_threshold', 0.7)
+        self.model_uri = config["model_uri"]
+        self.prediction_window = config.get("prediction_window", 5)
+        self.confidence_threshold = config.get("confidence_threshold", 0.7)
         # Load model from registry
         self.model = None  # To be loaded from MLflow
 
@@ -29,11 +29,12 @@ class TimeSeriesStrategy(BaseStrategy):
         return {
             "signal": "buy" if prediction > 0 else "sell",
             "confidence": confidence,
-            "predicted_return": float(prediction)
+            "predicted_return": float(prediction),
         }
 
-    def calculate_position_size(self, signal: Dict[str, Any], 
-                              account_info: Dict[str, Any]) -> float:
+    def calculate_position_size(
+        self, signal: Dict[str, Any], account_info: Dict[str, Any]
+    ) -> float:
         """Calculate position size based on prediction confidence."""
         raise NotImplementedError()
 
