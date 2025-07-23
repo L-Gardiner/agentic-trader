@@ -1,7 +1,9 @@
 from datetime import datetime
-from typing import Optional
 from enum import Enum
+from typing import Optional
+
 from pydantic import BaseModel, Field
+
 
 class OrderType(str, Enum):
     MARKET = "market"
@@ -9,9 +11,11 @@ class OrderType(str, Enum):
     STOP = "stop"
     STOP_LIMIT = "stop_limit"
 
+
 class OrderSide(str, Enum):
     BUY = "buy"
     SELL = "sell"
+
 
 class OrderRequest(BaseModel):
     platform: str
@@ -22,6 +26,7 @@ class OrderRequest(BaseModel):
     price: Optional[float] = None
     stop_price: Optional[float] = None
     time_in_force: Optional[str] = "GTC"
+
 
 class OrderResponse(BaseModel):
     order_id: str

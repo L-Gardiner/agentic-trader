@@ -1,9 +1,9 @@
-from typing import List, Dict, Any
-from datetime import datetime
+from typing import Any, Dict, List
+
 
 class BacktestEngine:
     """Core backtesting engine for simulating trading strategies."""
-    
+
     def __init__(self, initial_capital: float):
         self.initial_capital = initial_capital
         self.current_capital = initial_capital

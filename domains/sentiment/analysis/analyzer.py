@@ -1,6 +1,6 @@
-from typing import List, Dict, Any
-from datetime import datetime
 from enum import Enum
+from typing import Any, Dict, List
+
 
 class SentimentScore(Enum):
     VERY_NEGATIVE = -2
@@ -9,9 +9,10 @@ class SentimentScore(Enum):
     POSITIVE = 1
     VERY_POSITIVE = 2
 
+
 class SentimentAnalyzer:
     """Core sentiment analysis engine."""
-    
+
     def __init__(self, model_path: str):
         self.model_path = model_path
         self.sources: Dict[str, float] = {}  # source -> credibility score

@@ -1,7 +1,9 @@
 from fastapi import APIRouter, HTTPException
+
 from api.schemas.execution import OrderRequest, OrderResponse
 
 router = APIRouter()
+
 
 @router.post("/order", response_model=OrderResponse)
 async def place_order(request: OrderRequest):

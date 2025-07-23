@@ -1,7 +1,9 @@
 from datetime import datetime
-from typing import Dict, Any, List, Optional
 from enum import Enum
+from typing import Any, Dict, List, Optional
+
 from pydantic import BaseModel, Field
+
 
 class StrategyType(str, Enum):
     MOVING_AVERAGE = "moving_average"
@@ -13,10 +15,12 @@ class StrategyType(str, Enum):
     REINFORCEMENT = "reinforcement"
     ENSEMBLE = "ensemble"
 
+
 class SignalType(str, Enum):
     BUY = "buy"
     SELL = "sell"
     HOLD = "hold"
+
 
 class StrategyRequest(BaseModel):
     strategy_type: StrategyType
@@ -26,6 +30,7 @@ class StrategyRequest(BaseModel):
     start_time: Optional[datetime] = None
     end_time: Optional[datetime] = None
 
+
 class Signal(BaseModel):
     symbol: str
     signal_type: SignalType
@@ -33,6 +38,7 @@ class Signal(BaseModel):
     price: float
     timestamp: datetime
     metadata: Optional[Dict[str, Any]] = None
+
 
 class StrategyResponse(BaseModel):
     strategy_id: str

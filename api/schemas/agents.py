@@ -1,7 +1,9 @@
 from datetime import datetime
-from typing import Dict, Any, Optional, List
 from enum import Enum
+from typing import Any, Dict, List, Optional
+
 from pydantic import BaseModel, Field
+
 
 class AgentType(str, Enum):
     FOREX = "forex"
@@ -10,12 +12,14 @@ class AgentType(str, Enum):
     COMMODITY = "commodity"
     PORTFOLIO = "portfolio"
 
+
 class AgentState(str, Enum):
     IDLE = "idle"
     ANALYZING = "analyzing"
     EXECUTING = "executing"
     COOLING_DOWN = "cooling_down"
     ERROR = "error"
+
 
 class AgentRequest(BaseModel):
     agent_type: AgentType
@@ -24,6 +28,7 @@ class AgentRequest(BaseModel):
     risk_limit: float
     max_position_size: float
     time_horizon: str
+
 
 class AgentResponse(BaseModel):
     agent_id: str

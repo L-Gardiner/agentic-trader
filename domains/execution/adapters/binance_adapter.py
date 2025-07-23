@@ -1,10 +1,11 @@
-from typing import Dict, Any, List, Optional
-from datetime import datetime
+from typing import Any, Dict, Optional
+
 from .trading_platform import TradingPlatform
+
 
 class BinanceAdapter(TradingPlatform):
     """Binance trading platform adapter."""
-    
+
     def __init__(self, api_key: str, api_secret: str, testnet: bool = False):
         self.api_key = api_key
         self.api_secret = api_secret

@@ -1,10 +1,11 @@
-from typing import Dict, Any, Optional
+from typing import Any, Dict
+
 import mlflow
-from datetime import datetime
+
 
 class ModelTrainer:
     """Base class for model training pipelines."""
-    
+
     def __init__(self, model_name: str, model_version: str):
         self.model_name = model_name
         self.model_version = model_version
@@ -12,12 +13,14 @@ class ModelTrainer:
 
     def train(self, data: Dict[str, Any], parameters: Dict[str, Any]) -> str:
         """Train a model and return the model URI."""
-        with mlflow.start_run(experiment_name=self.experiment_name) as run:
+        with mlflow.start_run(experiment_name=self.experiment_name):
             mlflow.log_params(parameters)
             model_uri = self._train_implementation(data, parameters)
             return model_uri
 
-    def _train_implementation(self, data: Dict[str, Any], parameters: Dict[str, Any]) -> str:
+    def _train_implementation(
+        self, data: Dict[str, Any], parameters: Dict[str, Any]
+    ) -> str:
         """Implementation-specific training logic."""
         raise NotImplementedError()
 

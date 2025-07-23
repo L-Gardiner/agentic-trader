@@ -1,6 +1,8 @@
 from datetime import datetime
-from typing import Dict, Any, List, Optional
+from typing import Any, Dict, List, Optional
+
 from pydantic import BaseModel, Field
+
 
 class ModelTrainRequest(BaseModel):
     model_name: str
@@ -12,10 +14,12 @@ class ModelTrainRequest(BaseModel):
     validation_split: float = 0.2
     test_split: Optional[float] = 0.1
 
+
 class ModelPredictRequest(BaseModel):
     model_uri: str
     features: Dict[str, List[float]]
-    
+
+
 class ModelMetrics(BaseModel):
     accuracy: float
     precision: float
@@ -23,6 +27,7 @@ class ModelMetrics(BaseModel):
     f1_score: float
     training_time: float
     timestamp: datetime = Field(default_factory=datetime.now)
+
 
 class ModelResponse(BaseModel):
     model_uri: str

@@ -9,5 +9,5 @@ This directory contains training and backtesting datasets for local development 
 
 ## Note
 
-This directory is for local development only and is not version controlled. 
+This directory is for local development only and is not version controlled.
 All files in this directory (except this README) are ignored by git.

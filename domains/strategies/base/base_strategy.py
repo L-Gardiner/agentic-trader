@@ -1,10 +1,11 @@
-from typing import Dict, Any, List, Optional
-from datetime import datetime
 from abc import ABC, abstractmethod
+from datetime import datetime
+from typing import Any, Dict, Optional
+
 
 class BaseStrategy(ABC):
     """Base class for all trading strategies."""
-    
+
     def __init__(self, config: Dict[str, Any]):
         self.config = config
         self.position: Dict[str, float] = {}
@@ -16,8 +17,9 @@ class BaseStrategy(ABC):
         pass
 
     @abstractmethod
-    def calculate_position_size(self, signal: Dict[str, Any], 
-                              account_info: Dict[str, Any]) -> float:
+    def calculate_position_size(
+        self, signal: Dict[str, Any], account_info: Dict[str, Any]
+    ) -> float:
         """Calculate position size based on signal and account information."""
         pass
 
